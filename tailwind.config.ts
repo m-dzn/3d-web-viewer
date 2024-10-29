@@ -13,6 +13,7 @@ const config: Config = {
         primary: "var(--primary)",
         "primary-on": "var(--primary-on)",
         surface: "var(--surface)",
+        highlight: "var(--highlight)",
         font: {
           default: "var(--font-default)",
         },
