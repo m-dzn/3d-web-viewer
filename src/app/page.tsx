@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 import { Model, Sidebar } from "@/components";
@@ -19,6 +19,9 @@ export default function Home() {
       <Sidebar onChangeModel={handleChangeModel} />
       <main className="flex-1 flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Canvas>
+          <Camera />
+          <OrbitControls />
+
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 5, 5]} />
           <OrbitControls />
@@ -29,3 +32,13 @@ export default function Home() {
     </div>
   );
 }
+
+const Camera = () => {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    camera.position.set(25, 25, 25);
+  }, []);
+
+  return <></>;
+};
