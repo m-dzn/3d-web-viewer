@@ -7,15 +7,14 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 interface ModelProps {
   gltf?: GLTF;
-  color?: string;
 }
 
-const Model = ({ gltf, color }: ModelProps) => {
+const Model = ({ gltf }: ModelProps) => {
   return (
     gltf && (
       <group>
         {Object.entries(gltf.scene.children).map(([key, mesh]) => {
-          return <Mesh key={key} mesh={mesh} color={color} />;
+          return <Mesh key={key} mesh={mesh} />;
         })}
       </group>
     )
@@ -24,7 +23,6 @@ const Model = ({ gltf, color }: ModelProps) => {
 
 const Mesh = ({
   mesh,
-  color,
 }: {
   mesh: Object3D<Object3DEventMap>;
   color?: string;

@@ -1,12 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { Canvas, useLoader, useThree } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 import { Model, Sidebar } from "@/components";
 import { GLTFRecord } from "@/types";
-import { TextureLoader } from "three";
 import Toolbar from "@/components/Toolbar";
 
 export default function Home() {
