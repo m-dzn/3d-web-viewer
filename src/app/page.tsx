@@ -1,15 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 import { Model, Sidebar } from "@/components";
 import { GLTFRecord } from "@/types";
+import { TextureLoader } from "three";
+import Toolbar from "@/components/Toolbar";
 
 export default function Home() {
   const [gltf, setGltf] = useState<GLTF | undefined>();
-
   const handleChangeModel = (model: GLTFRecord) => {
     setGltf(model.gltf);
   };
@@ -24,11 +25,11 @@ export default function Home() {
 
           <ambientLight intensity={1.5} />
           <directionalLight position={[0, 5, 5]} />
-          <OrbitControls />
 
           <Model gltf={gltf} />
         </Canvas>
       </main>
+      <Toolbar />
     </div>
   );
 }
@@ -37,7 +38,7 @@ const Camera = () => {
   const { camera } = useThree();
 
   useEffect(() => {
-    camera.position.set(25, 25, 25);
+    camera.position.set(30, 30, 30);
   }, []);
 
   return <></>;

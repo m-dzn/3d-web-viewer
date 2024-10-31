@@ -16,7 +16,7 @@ const ModelList = ({ models, onChangeModel, ...rest }: ModelListProps) => {
   };
 
   useEffect(() => {
-    if (!activeItem) return;
+    if (activeItem === undefined) return;
 
     const model = models[activeItem];
     onChangeModel(model);

@@ -19,10 +19,9 @@ const Sidebar = ({ onChangeModel }: SidebarProps) => {
   const addGLTFToList = (fileName: string, gltf: GLTF) => {
     setList((prev) => [...prev, { name: fileName, gltf }]);
   };
-  console.log(list);
 
   return (
-    <aside className="w-80 h-screen bg-surface p-4 flex flex-col gap-4">
+    <aside className="w-80 h-screen bg-surface p-4 flex flex-col gap-4 shrink-0">
       <UploadButton
         leftIcon={<p>+</p>}
         onFileChange={(event) => handleUploadGLTF(event, addGLTFToList)}
